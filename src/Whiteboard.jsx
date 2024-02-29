@@ -59,21 +59,27 @@ const Whiteboard = () => {
     const canvas = canvasRef.current;
   
     if (format === 'pdf') {
-      const pdf = new jsPDF();
-      const imgData = canvas.toDataURL('image/jpeg', 1.0);
-      const imgWidth = pdf.internal.pageSize.getWidth(); // Use PDF page width
-      const imgHeight = (canvas.height * imgWidth) / canvas.width; // Maintain aspect ratio
-      pdf.addImage(imgData, 'JPEG', 0, 0, imgWidth, imgHeight);
-      pdf.save('signature.pdf');
+      try {
+        const pdf = new jsPDF();
+        const imgData = canvas.toDataURL('image/jpeg', 1.0);
+        
+        // Add image to first page
+        pdf.addImage(imgData, 'JPEG', 0, 0, 210, 297); 
+        
+        // Add footer to each page
+        const totalPages = pdf.internal.getNumberOfPages();
+        for (let i = 1; i <= totalPages; i++) {
+          pdf.setPage(i);
+          pdf.text('Developed by Suraj Chaudhary @Thinken Media', 14, pdf.internal.pageSize.getHeight() - 10); // Adjust coordinates as needed
+        }
+        
+        // Save PDF
+        pdf.save('signature.pdf');
+      } catch (error) {
+        console.error('Error creating PDF:', error);
+      }
     } else {
-      const dataUrl = canvas.toDataURL('image/jpeg');
-      
-      const link = document.createElement('a');
-      link.download = `signature.jpg`;
-      link.href = dataUrl;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+      // Handle JPEG download
     }
   };
 

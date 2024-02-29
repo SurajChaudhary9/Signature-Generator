@@ -1,23 +1,29 @@
+/* Global styles */
+
 .whiteboard-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh; /* Set height to full viewport height */
-    background: linear-gradient(135deg, #3498db, #8e44ad); /* Gradient background */
+    height: 100vh;
+    background: linear-gradient(135deg, #3498db, #8e44ad);
+    padding: 20px; /* Add padding for better spacing */
   }
   
   .whiteboard-title {
-    color: #fff; /* Title color */
-    font-size: 2rem; /* Title font size */
-    margin-bottom: 20px; /* Add some space between title and canvas */
+    color: #fff;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center; /* Center the title text */
   }
   
   .whiteboard {
-    margin-top: 20px; /* Add some space above the canvas */
+    width: 100%; /* Make canvas width 100% */
+    max-width: 600px; /* Limit canvas width for better view on larger screens */
     border: 2px solid #ccc;
-    background-color: #fff; /* Set canvas background color to white */
-    border-radius: 8px; /* Add some border radius */
+    background-color: #fff;
+    border-radius: 8px;
+    margin-bottom: 20px; /* Add space between canvas and buttons */
   }
   
   .canvas-heading {
@@ -25,46 +31,59 @@
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    color: #000; /* Heading color */
-    font-size: 1.2rem; /* Heading font size */
-    font-weight: bold; /* Heading font weight */
+    color: #000;
+    font-size: 1.2rem;
+    font-weight: bold;
   }
   
-  .download-button {
-    background-color: #4CAF50; /* Green */
+  /* Button container styles */
+  .button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Button styles */
+  .download-button, .clear-button {
+    background-color: #4CAF50;
     border: none;
     color: white;
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
     font-size: 16px;
-    margin: 4px 2px;
+    margin: 0 10px; /* Add space between buttons */
     transition-duration: 0.4s;
     cursor: pointer;
     border-radius: 4px;
-  }
-  
-  .download-button:hover {
-    background-color: #45a049; /* Darker Green */
+    width: 150px; /* Set button width */
   }
   
   .clear-button {
-    background-color: #f44336; /* Red */
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    transition-duration: 0.4s;
-    cursor: pointer;
-    border-radius: 4px;
+    background-color: #f44336;
+  }
+  
+  /* Hover styles */
+  
+  .download-button:hover {
+    background-color: #45a049;
   }
   
   .clear-button:hover {
-    background-color: #d32f2f; /* Darker Red */
+    background-color: #d32f2f;
+  }
+  
+  /* Media queries for responsiveness */
+  
+  @media screen and (min-width: 768px) {
+    /* Styles for tablets and desktops */
+    
+    .whiteboard-container {
+      padding: 50px; /* Increase padding for better spacing on larger screens */
+    }
+    
+    .whiteboard {
+      max-width: 800px; /* Increase max-width for larger screens */
+    }
   }
   
