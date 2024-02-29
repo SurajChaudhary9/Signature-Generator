@@ -1,0 +1,32 @@
+.whiteboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Set height to full viewport height */
+    background: linear-gradient(135deg, #3498db, #8e44ad); /* Gradient background */
+  }
+  
+  .whiteboard-title {
+    color: #fff; /* Title color */
+    font-size: 2rem; /* Title font size */
+    margin-bottom: 20px; /* Add some space between title and canvas */
+  }
+  
+  .whiteboard {
+    margin-top: 20px; /* Add some space above the canvas */
+    border: 2px solid #ccc;
+    background-color: #fff; /* Set canvas background color to white */
+    border-radius: 8px; /* Add some border radius */
+  }
+  
+  .canvas-heading {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #000; /* Heading color */
+    font-size: 1.2rem; /* Heading font size */
+    font-weight: bold; /* Heading font weight */
+  }
+  
