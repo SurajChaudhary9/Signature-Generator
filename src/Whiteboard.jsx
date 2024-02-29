@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './Whiteboard.css'; // Import your CSS file for styling
-
+import html2canvas from 'html2canvas'; // Import html2canvas package
+import jsPDF from 'jspdf';
 const Whiteboard = () => {
   const canvasRef = useRef(null);
   const [isDrawing, setIsDrawing] = useState(false);
@@ -48,6 +49,34 @@ const Whiteboard = () => {
     };
   }, [isDrawing, prevX, prevY]);
 
+  const handleClear = () => {
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  };
+
+  const handleDownload = async (format) => {
+    const canvas = canvasRef.current;
+  
+    if (format === 'pdf') {
+      const pdf = new jsPDF();
+      const imgData = canvas.toDataURL('image/jpeg', 1.0);
+      const imgWidth = pdf.internal.pageSize.getWidth(); // Use PDF page width
+      const imgHeight = (canvas.height * imgWidth) / canvas.width; // Maintain aspect ratio
+      pdf.addImage(imgData, 'JPEG', 0, 0, imgWidth, imgHeight);
+      pdf.save('signature.pdf');
+    } else {
+      const dataUrl = canvas.toDataURL('image/jpeg');
+      
+      const link = document.createElement('a');
+      link.download = `signature.jpg`;
+      link.href = dataUrl;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  };
+
   return (
     <div className="whiteboard-container">
       <h1 className="whiteboard-title">Signature Generator</h1>
@@ -59,7 +88,12 @@ const Whiteboard = () => {
       >
         Your browser does not support the HTML5 Canvas element.
       </canvas>
-      <div className="canvas-heading">Draw your signature</div>
+      <div className="canvas-controls">
+        <button className="clear-button" onClick={handleClear}>Clear</button>
+        <button className="download-button" onClick={() => handleDownload('jpeg')}>Download as JPEG</button>
+        <button className="download-button" onClick={() => handleDownload('pdf')}>Download as PDF</button>
+        <div className="canvas-heading">Draw your signature</div>
+      </div>
     </div>
   );
 };
