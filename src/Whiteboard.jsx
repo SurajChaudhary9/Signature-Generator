@@ -97,7 +97,7 @@ const Whiteboard = () => {
       <div className="canvas-controls">
         <button className="clear-button" onClick={handleClear}>Clear</button>
         <button className="download-button" onClick={() => handleDownload('jpeg')}>Download as JPEG</button>
-        <button className="download-button" onClick={() => handleDownload('pdf')}>Download as PDF</button>
+        {/* <button className="download-button" onClick={() => handleDownload('pdf')}>Download as PDF</button> */}
         <div className="canvas-heading">Draw your signature</div>
       </div>
     </div>
