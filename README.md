@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+# Signature Generator
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Signature Generator](ivr/src/Capture.JPG)
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+Signature Generator is a web application that allows users to create digital signatures. It provides a canvas where users can draw their signatures using a mouse or touch gestures. The application supports downloading the generated signature as both JPEG image and PDF document.
 
-### `npm start`
+## How to Use
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. **Drawing Signature**: 
+    - Click and drag on the canvas to draw your signature.
+    - On mobile devices, use touch gestures to draw.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+2. **Clear Signature**: 
+    - Click the "Clear" button to erase the current signature and start over.
 
-### `npm test`
+3. **Download Signature**: 
+    - Click the "Download as JPEG" button to save the signature as a JPEG image.
+    - Click the "Download as PDF" button to save the signature as a PDF document with footer text "Developed by Suraj Chaudhary @Thinken Media" added to each page.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## How to Run
 
-### `npm run build`
+To run the Signature Generator locally on your machine, follow these steps:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. **Clone the Repository**:
+    ```
+    git clone https://github.com/your-username/signature-generator.git
+    ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. **Navigate to the Project Directory**:
+    ```
+    cd signature-generator
+    ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. **Install Dependencies**:
+    ```
+    npm install
+    ```
 
-### `npm run eject`
+4. **Start the Application**:
+    ```
+    npm start
+    ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+5. **Access the Application**:
+    Open your web browser and go to `http://localhost:3000` to access the Signature Generator.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Technologies Used
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- React.js
+- HTML5 Canvas
+- html2canvas
+- jsPDF
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Credits
 
-## Learn More
+Developed by [Suraj Chaudhary](https://github.com/your-username) @Thinken Media.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
